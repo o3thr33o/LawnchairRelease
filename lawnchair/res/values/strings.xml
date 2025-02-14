@@ -175,6 +175,7 @@
     <string name="overlay_suck_in">Suck In</string>
     <string name="app_closing_animation">App closing animation</string>
     <string name="overlay_label">Overlay</string>
+    <string name="overlay_none">None</string>
 
     <!--
 
@@ -471,6 +472,7 @@
     <string name="gesture_handler_open_app_drawer">Open app drawer</string>
     <string name="gesture_handler_open_app_search">Open app search</string>
     <string name="gesture_handler_open_search">Open search</string>
+    <string name="gesture_handler_open_assistant">Open assistant</string>
 
     <string name="pick_app_for_gesture">Pick app</string>
 
