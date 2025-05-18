@@ -47,7 +47,7 @@ allprojects {
     }
 
     plugins.withId('com.google.protobuf') {
-        def protocVersion = '4.30.2'
+        def protocVersion = '4.31.0'
         protobuf {
             // Configure the protoc executable
             protoc {
@@ -376,7 +376,7 @@ dependencies {
     implementation "com.patrykmichalik.opto:core:$optoVersion"
     implementation "com.patrykmichalik.opto:compose:$optoVersion"
     implementation "androidx.datastore:datastore-preferences:1.1.4"
-    def retrofitVersion = "2.11.0"
+    def retrofitVersion = "3.0.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-kotlinx-serialization:$retrofitVersion"
 
