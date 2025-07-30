@@ -2,6 +2,7 @@ package app.lawnchair.ui.preferences.components.search
 
 import android.Manifest
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
+import androidx.annotation.Keep
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Spacer
@@ -38,7 +39,10 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
+import kotlinx.serialization.Serializable
 
+@Serializable
+@Keep
 enum class SearchProviderId(val id: String) {
     APPS("apps"),
     CALCULATOR("calculator"),
