@@ -16,7 +16,7 @@ refine = "4.4.0"
 guava = "33.5.0-android"
 junitVersion = "4.13.2"
 mockito = "5.21.0"
-mockitoKotlin = "5.4.0"
+mockitoKotlin = "6.2.3"
 truth = "1.4.5"
 testRules = "1.7.0"
 testRunner = "1.7.0"
@@ -108,10 +108,6 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidx-room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
 
-# Kotlin
-kotlin-androidExtensionRuntime = { module = "org.jetbrains.kotlin:kotlin-android-extensions-runtime", version.ref = "kotlin" }
-kotlin-parcelizeRuntime = { module = "org.jetbrains.kotlin:kotlin-parcelize-runtime", version.ref = "kotlin" }
-kotlin-stdlib-jdk7 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk7", version.ref = "kotlin" }
 # KotlinX
 kotlinx-coroutines-android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
 kotlinx-coroutines-test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2"
@@ -143,6 +139,8 @@ rikka-refine-runtime = { group = "dev.rikka.tools.refine", name = "runtime", ver
 smartspacer-sdk = "com.kieronquinn.smartspacer:sdk-client:1.1.2"
 xdrop-fuzzywuzzy = "me.xdrop:fuzzywuzzy:1.4.0"
 errorprone-annotations = "com.google.errorprone:error_prone_annotations:2.46.0"
+# Dummy to get renovate updates, the version is used in rootProject build.gradle with spotless.
+ktlint = "com.pinterest.ktlint:ktlint-cli:1.8.0"
 composeRules = "io.nlopez.compose.rules:ktlint:0.5.3"
 google-guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
 
