@@ -1,7 +1,7 @@
 [versions]
 jdkRelease = "21"
 
-agp = "9.0.0"
+agp = "9.0.1"
 kotlin = "2.3.10"
 androidx-room = "2.8.4"
 androidx-lifecycle = "2.10.0"
@@ -9,7 +9,7 @@ accompanist = "0.37.3"
 opto = "1.0.18"
 protobuf = "4.33.5"
 retrofit = "3.0.0"
-dagger = "2.59.1"
+dagger = "2.59.2"
 libsu = "6.0.0"
 refine = "4.4.0"
 
@@ -149,8 +149,8 @@ google-truth = { group = "com.google.truth", name = "truth", version.ref = "trut
 junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
 mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
 mockito-robolectric = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
-mockito-robolectric-bytebuddy = "net.bytebuddy:byte-buddy:1.18.4"
-mockito-robolectric-bytebuddy-agent = "net.bytebuddy:byte-buddy-agent:1.18.4"
+mockito-robolectric-bytebuddy = "net.bytebuddy:byte-buddy:1.18.5"
+mockito-robolectric-bytebuddy-agent = "net.bytebuddy:byte-buddy-agent:1.18.5"
 
 [bundles]
 accompanist = ["accompanist-adaptive", "accompanist-drawablepainter", "accompanist-permissions"]
