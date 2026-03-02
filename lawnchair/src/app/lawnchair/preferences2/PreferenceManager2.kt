@@ -59,6 +59,7 @@ import com.android.launcher3.LauncherAppState
 import com.android.launcher3.LauncherPrefs
 import com.android.launcher3.LauncherPrefs.Companion.ENABLE_TWOLINE_ALLAPPS_TOGGLE
 import com.android.launcher3.R
+import com.android.launcher3.Workspace
 import com.android.launcher3.dagger.ApplicationContext
 import com.android.launcher3.dagger.LauncherAppComponent
 import com.android.launcher3.dagger.LauncherAppSingleton
@@ -345,6 +346,11 @@ class PreferenceManager2 @Inject constructor(
         defaultValue = context.resources.getBoolean(R.bool.config_default_lock_home_screen),
     )
 
+    val defaultHomePage = preference(
+        key = intPreferencesKey(name = "default_home_page"),
+        defaultValue = Workspace.DEFAULT_PAGE,
+    )
+
     val legacyPopupOptionsMigrated = preference(
         key = booleanPreferencesKey(name = "legacy_popup_options_migrated"),
         defaultValue = false,
@@ -378,6 +384,11 @@ class PreferenceManager2 @Inject constructor(
         key = booleanPreferencesKey(name = "hide_app_drawer_search_bar"),
         defaultValue = context.resources.getBoolean(R.bool.config_default_hide_app_drawer_search_bar),
         onSet = { reloadHelper.recreate() },
+    )
+
+    val appDrawerHapticFeedback = preference(
+        key = booleanPreferencesKey(name = "app_drawer_haptic_feedback"),
+        defaultValue = context.resources.getBoolean(R.bool.config_default_app_drawer_haptic_feedback),
     )
 
     val showHiddenAppsInSearch = preference(
