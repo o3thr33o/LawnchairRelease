@@ -164,9 +164,11 @@ public class TouchInteractionService extends Service {
     private static final ConstantItem<Boolean> HAS_ENABLED_QUICKSTEP_ONCE = backedUpItem(
             "launcher.has_enabled_quickstep_once", false, EncryptionType.ENCRYPTED);
 
-    private static final DesktopExperienceFlag ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS =
-            new DesktopExperienceFlag(Flags::enableGestureNavOnConnectedDisplays, true,
-                Flags.FLAG_ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS);
+    private static final boolean ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS = false;
+
+//    private static final DesktopExperienceFlag ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS =
+//            new DesktopExperienceFlag(Flags::enableGestureNavOnConnectedDisplays, true,
+//                Flags.FLAG_ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS);
 
     private final TISBinder mTISBinder = new TISBinder(this);
 
@@ -786,7 +788,7 @@ public class TouchInteractionService extends Service {
 
     @Nullable
     private InputEventReceiver getInputEventReceiver(int displayId) {
-        if (ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS.isTrue()) {
+        if (ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS) {
             InputMonitorResource inputMonitorResource = mInputMonitorDisplayModel == null
                     ? null : mInputMonitorDisplayModel.getDisplayResource(displayId);
             return inputMonitorResource == null ? null : inputMonitorResource.inputEventReceiver;
@@ -796,7 +798,7 @@ public class TouchInteractionService extends Service {
 
     @Nullable
     private InputMonitorCompat getInputMonitorCompat(int displayId) {
-        if (ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS.isTrue()) {
+        if (ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS) {
             InputMonitorResource inputMonitorResource = mInputMonitorDisplayModel == null
                     ? null : mInputMonitorDisplayModel.getDisplayResource(displayId);
             return inputMonitorResource == null ? null : inputMonitorResource.inputMonitorCompat;
@@ -807,7 +809,7 @@ public class TouchInteractionService extends Service {
     private void disposeEventHandlers(String reason) {
         Log.d(TAG, "disposeEventHandlers: Reason: " + reason
                 + " instance=" + System.identityHashCode(this));
-        if (ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS.isTrue()) {
+        if (ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS) {
             if (mInputMonitorDisplayModel == null) return;
             mInputMonitorDisplayModel.destroy();
             return;
@@ -830,7 +832,7 @@ public class TouchInteractionService extends Service {
                 && (mTrackpadsConnected.isEmpty())) {
             return;
         }
-        if (ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS.isTrue()) {
+        if (ENABLE_GESTURE_NAV_ON_CONNECTED_DISPLAYS) {
             mInputMonitorDisplayModel = new InputMonitorDisplayModel(
                     this, mSystemDecorationChangeObserver);
         } else {
