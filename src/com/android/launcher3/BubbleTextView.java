@@ -368,10 +368,14 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
             mIconLoadRequest.cancel();
             mIconLoadRequest = null;
         }
+        // Clear touch/press state and FastBitmapDrawable press/hover scale so recycled views
+        // (e.g. All Apps) do not keep inconsistent icon sizes (see issue #6575).
+        clearPressedBackground();
+        resetIconScale();
         // Reset any shifty arrangements in case animation is disrupted.
         setPivotY(0);
         setAlpha(1);
-        setScaleY(1);
+        setReorderBounceScale(1f);
         setTranslationY(0);
         setMaxLines(1);
         setVisibility(VISIBLE);
@@ -1374,6 +1378,9 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
         // same as before.
         mDisableRelayout = mIcon != null;
 
+        if (icon instanceof FastBitmapDrawable fbd) {
+            fbd.resetScale();
+        }
         icon.setBounds(0, 0, mIconSize, mIconSize);
 
         updateIcon(icon);
