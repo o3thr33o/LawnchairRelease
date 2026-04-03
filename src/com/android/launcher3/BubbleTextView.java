@@ -724,9 +724,28 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
         }
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        // Resume callbacks can run before the window is focused again (e.g. back / predictive
+        // back). Clearing when focus returns covers that ordering gap.
+        if (hasWindowFocus) {
+            clearPressedIconState();
+        }
+    }
+
     public void clearPressedBackground() {
         setPressed(false);
         setStayPressed(false);
+    }
+
+    /**
+     * Clears framework pressed state, synthetic stay-pressed, and {@link FastBitmapDrawable} tap
+     * scale. Use when a launch transition ends so the icon matches neighbors again.
+     */
+    public void clearPressedIconState() {
+        clearPressedBackground();
+        resetIconScale();
     }
 
     @Override
