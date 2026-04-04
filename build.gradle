@@ -427,6 +427,8 @@ dependencies {
 
     implementation libs.google.guava
 
+    implementation libs.androidx.exifinterface
+
     debugImplementation libs.leakcanary.android
 }
 
@@ -438,7 +440,8 @@ ksp {
 
 spotless {
     java {
-        target("compatLib/**/src/**/*.java")
+        // LC-Note: Don't spotless AOSP code in compatlib
+        // target("compatLib/**/src/**/*.java")
         googleJavaFormat().aosp()
         removeUnusedImports()
     }
