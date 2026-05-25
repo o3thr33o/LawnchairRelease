@@ -154,12 +154,6 @@ android {
         buildConfigField "int", "QUICKSTEP_MAX_SDK", quickstepMaxSdk
     }
 
-    applicationVariants.configureEach { variant ->
-        variant.outputs.configureEach {
-            outputFileName = "Lawnchair-${versionString}-${buildTime}-${buildCommit}.apk"
-        }
-    }
-
     androidResources {
         generateLocaleConfig true
     }
@@ -211,9 +205,9 @@ android {
 
     buildTypes {
         all {
+            signingConfig releaseSigning
             pseudoLocalesEnabled true
             resValue("string", "derived_app_name", "Lawnchair")
-            signingConfig releaseSigning
         }
 
         release {
@@ -289,6 +283,14 @@ android {
             java.srcDirs = ['quickstep/src', 'quickstep/dagger', 'quickstep/recents_ui_overrides/src', 'quickstep/src_protolog']
             kotlin.directories.addAll('quickstep/src', 'quickstep/dagger', 'quickstep/recents_ui_overrides/src', 'quickstep/src_protolog')
             manifest.srcFile "quickstep/AndroidManifest.xml"
+        }
+    }
+}
+
+androidComponents {
+    onVariants(selector().all()) { variant ->
+        variant.outputs.forEach { output ->
+            output.outputFileName.set("Lawnchair-${versionString}-${buildTime}-${buildCommit}.apk")
         }
     }
 }
