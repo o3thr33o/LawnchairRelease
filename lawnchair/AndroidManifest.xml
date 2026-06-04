@@ -41,6 +41,9 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
 
+    <!-- Support non-cellular enabled devices -->
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+
     <!--override minSdk declared in it-->
     <uses-sdk tools:overrideLibrary="com.kieronquinn.app.smartspacer.sdk" />
 
